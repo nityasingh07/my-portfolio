@@ -1,4 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
+/* If you have any global custom CSS, place it below this line */

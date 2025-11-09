@@ -1,0 +1,7 @@
+@keyframes blink {
+  0%, 50%, 100% { border-color: #ec4899; } /* Tailwind pink-500 */
+  25%, 75% { border-color: transparent; }
+}
+.animate-blink {
+  animation: blink 0.7s infinite;
+}
