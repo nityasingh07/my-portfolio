@@ -11,6 +11,7 @@ export default function Navbar() {
       setActive(section);
     }
   };
+  
 
   useEffect(() => {
     const onScroll = () => {
