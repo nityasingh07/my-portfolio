@@ -12,6 +12,9 @@ export default function Home() {
   const [showExpCard1, setShowExpCard1] = useState(false);
   const [showExpCard2, setShowExpCard2] = useState(false);
   const [showExpCard3, setShowExpCard3] = useState(false);
+  const [showProjectCard1, setShowProjectCard1] = useState(false);
+  const [showProjectCard2, setShowProjectCard2] = useState(false);
+  const [showProjectCard3, setShowProjectCard3] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -52,11 +55,12 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, [text, isDeleting, roleIndex, typingSpeed]);
 
-  // Skills and Experience animation trigger
+  // Skills, Experience, and Projects animation trigger
   useEffect(() => {
     const handleScroll = () => {
       const skillsSection = document.getElementById('skills');
       const experienceSection = document.getElementById('experience');
+      const projectsSection = document.getElementById('projects');
       
       if (skillsSection && !showRow1) {
         const rect = skillsSection.getBoundingClientRect();
@@ -79,12 +83,23 @@ export default function Home() {
           setTimeout(() => setShowExpCard3(true), 1100);
         }
       }
+
+      if (projectsSection && !showProjectCard1) {
+        const rect = projectsSection.getBoundingClientRect();
+        const inView = rect.top < window.innerHeight * 0.75 && rect.bottom > 0;
+        
+        if (inView) {
+          setTimeout(() => setShowProjectCard1(true), 200);
+          setTimeout(() => setShowProjectCard2(true), 500);
+          setTimeout(() => setShowProjectCard3(true), 800);
+        }
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // Check on mount
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [showRow1, showExpCard1]);
+  }, [showRow1, showExpCard1, showProjectCard1]);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -154,26 +169,55 @@ export default function Home() {
   // Experience data
   const experiences = [
     {
-      title: "Microsoft Learn Student Ambassador",
-      company: "Microsoft",
-      duration: "2024-Current",
-      description: "Serving as a Microsoft Learn Student Ambassador. Organizing tech events, workshops, and community sessions to empower students."
+      title: "AI-Powered Full-Stack Development Intern",
+      company: "IGDTUW",
+      duration: "Jun 2025 – Aug 2025",
+      description: "Built and deployed AI-integrated full-stack web apps using React, Node.js, and MongoDB while exploring OpenAI APIs for intelligent automation."
     },
     {
-      title: "Team Lead and Event Organizer",
-      company: "Knowvy Technologies",
-      duration: "2025-Current",
-      description: "Building Knowvy Technologies, a community for students. As an event organizer and community lead I have guided 300+ students and organised 10+ events."
+      title: "Open Source Contributor",
+      company: "GirlScript Summer of Code (GSSoC)",
+      duration: "Mar 2025 – Jun 2025",
+      description: "Enhanced multiple open-source repositories with optimized modules, impactful UI improvements, and active collaboration through GitHub reviews."
     },
     {
-      title: "Event Coordinator",
-      company: "MLH",
-      duration: "2025",
-      description: "Organized a Major League Hacking (MLH) hackathon, leading event planning, sponsorships, and participant engagement to create an impactful and collaborative developer experience."
+      title: "Frontend Developer",
+      company: "Open Source Connect India (OSCI)",
+      duration: "Aug 2025 – Oct 2025",
+      description: "Explored advanced open-source workflows, reviewed React-based UI components, and gained practical insights into code quality, scalability, and collaboration."
+    }
+  ];
+
+  // Projects data
+  const projects = [
+    {
+      id: 1,
+      title: "EcoTransfer",
+      description: "A sustainability-driven platform connecting small-scale artisans and waste suppliers — promoting recycling and upcycling with AI-driven recommendations and blockchain-based transparency..",
+      image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80",
+      tags: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS", "Blockchain", "AI Inetegration"],
+      github: "https://github.com/jpothesis/ecotransform"
+    },
+    {
+      id: 2,
+      title: "Dietly",
+      description: "AI-powered web application that helps users generate customized meal plans based on their health goals, dietary preferences, and calorie requirements. It simplifies nutrition tracking and provides a visually engaging dashboard to monitor daily intake, making healthy eating easy and accessible.",
+      image: "https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=800&q=80",
+      tags: ["  Vite", "React Router", "Express.js", "Google Gemini API", "Vercel", "JWT", "bcrypt.js"],
+      github: "https://github.com/vaibhavisingh876/dietly"
+    },
+    {
+      id: 3,
+      title: "Co-Align",
+      description: "Co-Align is an innovative AI-driven roommate matching platform built to enhance women’s co-living experiences. By analyzing lifestyle preferences, habits, and personalities, the system intelligently recommends compatible roommates. It integrates AI-based matching algorithms and the Omnidim.io Voice Assistant to deliver a seamless, personalized, and safe co-living journey for every user.",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+      tags: ["React.js", "Node.js", "Tailwind CSS", "Omnidim.io Voice Assistant API", "MongoDB",],
+      github: "https://github.com/nityasingh07/co-align"
     }
   ];
 
   const expCardStates = [showExpCard1, showExpCard2, showExpCard3];
+  const projectCardStates = [showProjectCard1, showProjectCard2, showProjectCard3];
 
   return (
     <div className="bg-black text-white">
@@ -377,7 +421,7 @@ export default function Home() {
           {/* Timeline */}
           <div className="relative">
             {/* Vertical Line */}
-            <div className="absolute left-0 md:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-400 to-purple-500" />
+            <div className="absolute left-0 md:left-8 top-0 bottom-0 w-1.5 bg-gradient-to-b from-cyan-400 via-cyan-500 to-purple-500 shadow-lg shadow-cyan-400/30" />
 
             {/* Experience Cards */}
             <div className="space-y-12 md:space-y-16">
@@ -391,7 +435,7 @@ export default function Home() {
                   }`}
                 >
                   {/* Timeline Dot */}
-                  <div className="absolute left-0 md:left-6 top-6 w-4 h-4 bg-cyan-400 rounded-full border-4 border-black shadow-lg shadow-cyan-400/50" />
+                  <div className="absolute left-0 md:left-5 top-6 w-6 h-6 bg-cyan-400 rounded-full border-4 border-black shadow-lg shadow-cyan-400/70" />
 
                   {/* Experience Card */}
                   <div className="group bg-black border border-gray-800 rounded-2xl p-6 md:p-8 hover:border-cyan-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/20 cursor-pointer">
@@ -421,7 +465,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* SKILLS SECTION - UPDATED */}
+      {/* SKILLS SECTION */}
       <div id="skills" className="min-h-screen relative py-20 px-16 overflow-hidden flex items-center justify-center">
         {/* Animated background stars */}
         <div className="absolute inset-0">
@@ -553,12 +597,107 @@ export default function Home() {
       </div>
 
       {/* PROJECTS SECTION */}
-      <div id="projects" className="min-h-screen relative py-20 px-16 flex items-center justify-center">
-        <div className="text-center">
-          <h2 className="text-5xl font-bold bg-gradient-to-r from-cyan-400 to-cyan-300 bg-clip-text text-transparent">
-            Projects
-          </h2>
-          <p className="text-gray-400 mt-4">Coming soon...</p>
+      <div id="projects" className="min-h-screen relative py-20 px-8 md:px-16 overflow-hidden">
+        {/* Animated background stars */}
+        <div className="absolute inset-0">
+          {[...Array(30)].map((_, i) => (
+            <div
+              key={`project-star-${i}`}
+              className="absolute w-1 h-1 bg-white rounded-full animate-pulse"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 3}s`,
+                opacity: Math.random() * 0.5 + 0.2,
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Gradient blobs */}
+        <div className="absolute top-20 left-1/4 w-96 h-96 bg-purple-600 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-blob" />
+        <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-cyan-400 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-blob animation-delay-2000" />
+
+        <div className="relative z-10 max-w-7xl mx-auto">
+          {/* Section Title */}
+          <div className="text-center mb-16">
+            <h2 className="text-5xl md:text-6xl font-bold mb-4">
+              <span className="bg-gradient-to-r from-cyan-400 to-cyan-300 bg-clip-text text-transparent">
+                Projects
+              </span>
+            </h2>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+              A collection of my recent work showcasing full-stack development, creative designs, and innovative solutions.
+            </p>
+          </div>
+
+          {/* Projects Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project, index) => (
+              <div
+                key={project.id}
+                className={`group relative bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl overflow-hidden border border-gray-800 hover:border-cyan-400/50 transition-all duration-700 hover:scale-[1.02] hover:shadow-2xl hover:shadow-cyan-400/20 ${
+                  projectCardStates[index]
+                    ? 'translate-y-0 opacity-100'
+                    : 'translate-y-20 opacity-0'
+                }`}
+              >
+                {/* Project Image */}
+                <div className="relative h-56 overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+                  
+                  {/* Hover Overlay */}
+                  <div className="absolute inset-0 bg-cyan-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+
+                {/* Project Content */}
+                <div className="p-6 space-y-4">
+                  {/* Title */}
+                  <h3 className="text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors">
+                    {project.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-gray-400 text-sm leading-relaxed line-clamp-3">
+                    {project.description}
+                  </p>
+
+                  {/* Tech Tags */}
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag, idx) => (
+                      <span
+                        key={idx}
+                        className="px-3 py-1 text-xs font-medium bg-cyan-400/10 text-cyan-400 rounded-full border border-cyan-400/20"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Action Buttons */}
+                  <div className="flex gap-3 pt-4">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-white/10 hover:bg-white/20 text-white rounded-lg font-medium transition-all duration-300 hover:scale-105 backdrop-blur-sm border border-white/10"
+                    >
+                      <Github className="w-4 h-4" />
+                      <span>GitHub</span>
+                    </a>
+                  </div>
+                </div>
+
+                {/* Decorative Corner Gradient */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-cyan-400/20 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
