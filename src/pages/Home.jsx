@@ -1,11 +1,17 @@
 import { useState, useEffect } from 'react';
-import { Menu, Linkedin, Github } from 'lucide-react';
+import { Linkedin, Github, ArrowUp } from 'lucide-react';
 
 export default function Home() {
   const [text, setText] = useState('');
   const [roleIndex, setRoleIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [typingSpeed, setTypingSpeed] = useState(150);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
 
   const roles = [
     "Full-Stack Developer",
@@ -39,98 +45,348 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, [text, isDeleting, roleIndex, typingSpeed]);
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = () => {
+    console.log('Form submitted:', formData);
+    // Add your form submission logic here
+  };
+
   return (
-    <div className="min-h-screen bg-black text-white relative overflow-hidden">
-      {/* Animated background stars */}
-      <div className="absolute inset-0">
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-white rounded-full animate-pulse"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              opacity: Math.random() * 0.5 + 0.2,
-            }}
-          />
-        ))}
-      </div>
-
-      {/* Gradient blobs */}
-      <div className="absolute top-20 left-1/4 w-96 h-96 bg-purple-600 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-blob" />
-      <div className="absolute top-40 right-1/4 w-96 h-96 bg-pink-600 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-blob animation-delay-2000" />
-
-      {/* Header */}
-      <header className="relative z-10 flex items-center justify-between p-6">
-        <div className="flex items-center gap-2">
-          <span className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-pink-500 bg-clip-text text-transparent">
-            N
-          </span>
-          <span className="text-xl font-light">Nitya Singh</span>
+    <div className="bg-black text-white">
+      {/* HOME SECTION */}
+      <div id="home" className="min-h-screen relative overflow-hidden">
+        {/* Animated background stars */}
+        <div className="absolute inset-0">
+          {[...Array(20)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-1 h-1 bg-white rounded-full animate-pulse"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 3}s`,
+                opacity: Math.random() * 0.5 + 0.2,
+              }}
+            />
+          ))}
         </div>
-        <button className="p-2 hover:bg-white/10 rounded-lg transition-colors">
-          <Menu size={28} />
-        </button>
-      </header>
 
-      {/* Main content */}
-      <div className="relative z-10 flex items-center justify-between px-16 py-20 max-w-7xl mx-auto">
-        <div className="flex-1 space-y-6">
-          <div className="space-y-4">
-            <h1 className="text-6xl font-bold">
-              <span className="bg-gradient-to-r from-cyan-400 to-cyan-300 bg-clip-text text-transparent">
-                Hello I'm
-              </span>
-            </h1>
-            <h1 className="text-7xl font-bold">Nitya Singh</h1>
-            
-            {/* Typewriter effect */}
-            <div className="h-12 flex items-center">
-              <span className="text-2xl text-cyan-400 font-medium">
-                {text}
-                <span className="animate-pulse">|</span>
-              </span>
+        {/* Gradient blobs */}
+        <div className="absolute top-20 left-1/4 w-96 h-96 bg-purple-600 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-blob" />
+        <div className="absolute top-40 right-1/4 w-96 h-96 bg-pink-600 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-blob animation-delay-2000" />
+
+        {/* Main content */}
+        <div className="relative z-10 flex items-center justify-between px-16 py-32 max-w-7xl mx-auto min-h-screen">
+          <div className="flex-1 space-y-6">
+            <div className="space-y-4">
+              <h1 className="text-6xl font-bold">
+                <span className="bg-gradient-to-r from-cyan-400 to-cyan-300 bg-clip-text text-transparent">
+                  Hello I'm
+                </span>
+              </h1>
+              <h1 className="text-7xl font-bold">Nitya Singh</h1>
+              
+              {/* Typewriter effect */}
+              <div className="h-12 flex items-center">
+                <span className="text-2xl text-cyan-400 font-medium">
+                  {text}
+                  <span className="animate-pulse">|</span>
+                </span>
+              </div>
+            </div>
+
+            <p className="text-gray-300 text-lg max-w-xl leading-relaxed">
+              I turn complex ideas into seamless, high-impact web experiences - building modern, scalable, and lightning-fast applications that make a difference.
+            </p>
+
+            <div className="flex gap-4 pt-4">
+              <button className="px-8 py-3.5 bg-gradient-to-r from-cyan-500 to-cyan-400 rounded-full font-semibold hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-105 tracking-wide">
+                View My Work
+              </button>
+              <button className="px-8 py-3.5 bg-white text-black rounded-full font-semibold hover:bg-gray-200 transition-all duration-300 hover:scale-105 tracking-wide">
+                My Resume
+              </button>
+            </div>
+
+            <div className="flex gap-6 pt-8">
+              <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                <Linkedin size={28} />
+              </a>
+              <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                <svg className="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              </a>
+              <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                <Github size={28} />
+              </a>
             </div>
           </div>
 
-          <p className="text-gray-300 text-lg max-w-xl leading-relaxed">
-            I turn complex ideas into seamless, high-impact web experiences - building modern, scalable, and lightning-fast applications that make a difference.
-          </p>
-
-          <div className="flex gap-4 pt-4">
-            <button className="px-8 py-3.5 bg-gradient-to-r from-cyan-500 to-cyan-400 rounded-full font-semibold hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-105 tracking-wide">
-              View My Work
-            </button>
-            <button className="px-8 py-3.5 bg-white text-black rounded-full font-semibold hover:bg-gray-200 transition-all duration-300 hover:scale-105 tracking-wide">
-              My Resume
-            </button>
-          </div>
-
-          <div className="flex gap-6 pt-8">
-            <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors">
-              <Linkedin size={28} />
-            </a>
-            <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors">
-              <svg className="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-              </svg>
-            </a>
-            <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors">
-              <Github size={28} />
-            </a>
+          {/* Placeholder for 3D Character */}
+          <div className="flex-1 flex items-center justify-center">
+            {/* 3D character will be added later */}
           </div>
         </div>
 
-        {/* Placeholder for 3D Character */}
-        <div className="flex-1 flex items-center justify-center">
-          {/* 3D character will be added later */}
+        {/* Reach Out button */}
+        <button className="fixed top-6 right-6 px-6 py-3 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full font-semibold hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105 z-50 tracking-wide">
+          Reach Out
+        </button>
+      </div>
+
+      {/* ABOUT SECTION */}
+      <div id="about" className="min-h-screen relative py-20 px-16">
+        {/* Animated background stars */}
+        <div className="absolute inset-0">
+          {[...Array(20)].map((_, i) => (
+            <div
+              key={`about-star-${i}`}
+              className="absolute w-1 h-1 bg-white rounded-full animate-pulse"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 3}s`,
+                opacity: Math.random() * 0.5 + 0.2,
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Gradient blobs */}
+        <div className="absolute top-40 right-1/4 w-96 h-96 bg-purple-600 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-blob animation-delay-2000" />
+
+        <div className="relative z-10 max-w-7xl mx-auto">
+          <div className="flex items-start gap-16">
+            {/* Profile Image */}
+            <div className="flex-shrink-0">
+              <div className="w-80 h-96 bg-gradient-to-br from-cyan-500/20 to-purple-500/20 rounded-3xl overflow-hidden border border-cyan-500/30">
+                <div className="w-full h-full flex items-center justify-center text-gray-500">
+                  {/* Placeholder for profile image */}
+                  <span className="text-sm">Profile Image</span>
+                </div>
+              </div>
+            </div>
+
+            {/* About Content */}
+            <div className="flex-1 space-y-8">
+              <div className="space-y-2">
+                <h2 className="text-5xl font-bold bg-gradient-to-r from-cyan-400 to-cyan-300 bg-clip-text text-transparent whitespace-nowrap">
+                  Nitya Singh
+                </h2>
+                <p className="text-2xl text-gray-300 font-medium">Full Stack Developer</p>
+              </div>
+
+              <p className="text-gray-300 text-lg leading-relaxed">
+                I build scalable, modern applications with a strong focus on clean architecture, performance, and delightful UX. My toolkit spans Java, React, Node.js, MongoDB, and Tailwind CSS — bringing ideas to life with smooth APIs and pixel-perfect interfaces.
+              </p>
+
+              {/* Info Cards */}
+              <div className="grid grid-cols-3 gap-4 pt-4">
+                <div className="border border-gray-700 rounded-xl p-6 h-28 hover:border-cyan-500/50 transition-colors flex flex-col justify-center">
+                  <p className="text-gray-400 text-sm mb-2">Experience</p>
+                  <p className="text-white text-xl font-semibold">Fresher</p>
+                </div>
+                <div className="border border-gray-700 rounded-xl p-6 h-28 hover:border-cyan-500/50 transition-colors flex flex-col justify-center">
+                  <p className="text-gray-400 text-sm mb-2">Specialty</p>
+                  <p className="text-white text-xl font-semibold">Full Stack</p>
+                </div>
+                <div className="border border-gray-700 rounded-xl p-6 h-28 hover:border-cyan-500/50 transition-colors flex flex-col justify-center">
+                  <p className="text-gray-400 text-sm mb-2">Focus</p>
+                  <p className="text-white text-xl font-semibold">Performance & UX</p>
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex gap-4 pt-4">
+                <button className="px-8 py-3.5 bg-gradient-to-r from-cyan-500 to-cyan-400 rounded-full font-semibold hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-105 tracking-wide">
+                  View Projects
+                </button>
+                <button className="px-8 py-3.5 bg-white text-black rounded-full font-semibold hover:bg-gray-200 transition-all duration-300 hover:scale-105 tracking-wide">
+                  Get in Touch
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* About Me Section */}
+          <div className="mt-20 text-center space-y-6">
+            <h2 className="text-4xl font-bold">About Me</h2>
+            <p className="text-gray-300 text-lg max-w-4xl mx-auto leading-relaxed">
+              I'm a Software Developer and Tech Enthusiast who loves crafting performant, user-centric web experiences. I focus on blending clean UI design with solid engineering — building fast, reliable, and accessible web applications.
+            </p>
+          </div>
         </div>
       </div>
 
-      {/* Reach Out button */}
-      <button className="fixed top-6 right-6 px-6 py-3 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full font-semibold hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105 z-20 tracking-wide">
-        Reach Out
+      {/* EXPERIENCE SECTION */}
+      <div id="experience" className="min-h-screen relative py-20 px-16 flex items-center justify-center">
+        <div className="text-center">
+          <h2 className="text-5xl font-bold bg-gradient-to-r from-cyan-400 to-cyan-300 bg-clip-text text-transparent">
+            Experience
+          </h2>
+          <p className="text-gray-400 mt-4">Coming soon...</p>
+        </div>
+      </div>
+
+      {/* SKILLS SECTION */}
+      <div id="skills" className="min-h-screen relative py-20 px-16 flex items-center justify-center">
+        <div className="text-center">
+          <h2 className="text-5xl font-bold bg-gradient-to-r from-cyan-400 to-cyan-300 bg-clip-text text-transparent">
+            Skills
+          </h2>
+          <p className="text-gray-400 mt-4">Coming soon...</p>
+        </div>
+      </div>
+
+      {/* PROJECTS SECTION */}
+      <div id="projects" className="min-h-screen relative py-20 px-16 flex items-center justify-center">
+        <div className="text-center">
+          <h2 className="text-5xl font-bold bg-gradient-to-r from-cyan-400 to-cyan-300 bg-clip-text text-transparent">
+            Projects
+          </h2>
+          <p className="text-gray-400 mt-4">Coming soon...</p>
+        </div>
+      </div>
+
+      {/* CONTACT SECTION */}
+      <div id="contact" className="min-h-screen relative overflow-hidden py-20">
+        {/* Animated background stars */}
+        <div className="absolute inset-0">
+          {[...Array(30)].map((_, i) => (
+            <div
+              key={`contact-star-${i}`}
+              className="absolute w-1 h-1 bg-white rounded-full animate-pulse"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 3}s`,
+                opacity: Math.random() * 0.5 + 0.2,
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Gradient blobs */}
+        <div className="absolute top-20 left-1/4 w-96 h-96 bg-purple-600 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-blob" />
+        <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-cyan-400 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-blob animation-delay-2000" />
+        <div className="absolute top-1/2 right-1/3 w-80 h-80 bg-pink-500 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-blob animation-delay-4000" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-16">
+          <div className="grid grid-cols-2 gap-16 items-center">
+            {/* Left side - Astronaut Image */}
+            <div className="flex items-center justify-center">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 via-pink-500/20 to-purple-500/20 rounded-full blur-3xl" />
+                <div className="relative">
+                  {/* Placeholder for astronaut image */}
+                  <div className="w-96 h-96 bg-gradient-to-br from-teal-900/50 to-purple-900/50 rounded-full flex items-center justify-center border border-cyan-400/30">
+                    <span className="text-gray-500 text-sm">Astronaut Image</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right side - Contact Form */}
+            <div className="space-y-8">
+              <div>
+                <h2 className="text-5xl font-bold mb-2">
+                  <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
+                    Let's Work Together
+                  </span>
+                </h2>
+              </div>
+
+              <div className="space-y-6">
+                {/* Name Field */}
+                <div>
+                  <label className="block text-white text-sm mb-2">
+                    Your Name <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Your Name"
+                    className="w-full bg-transparent border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition-colors"
+                  />
+                </div>
+
+                {/* Email Field */}
+                <div>
+                  <label className="block text-white text-sm mb-2">
+                    Your Email <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Your Email"
+                    className="w-full bg-transparent border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition-colors"
+                  />
+                </div>
+
+                {/* Subject Field */}
+                <div>
+                  <label className="block text-white text-sm mb-2">
+                    Give a Subject <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    placeholder="Something in mind?"
+                    className="w-full bg-transparent border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition-colors"
+                  />
+                </div>
+
+                {/* Message Field */}
+                <div>
+                  <label className="block text-white text-sm mb-2">
+                    Explain Your Idea
+                  </label>
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Explain your idea..."
+                    rows="5"
+                    className="w-full bg-transparent border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition-colors resize-none"
+                  />
+                </div>
+
+                {/* Submit Button */}
+                <button
+                  onClick={handleSubmit}
+                  className="w-full py-4 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-lg font-semibold text-white text-lg hover:shadow-lg hover:shadow-cyan-400/50 transition-all duration-300 hover:scale-105"
+                >
+                  Send Message
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Scroll to Top Button */}
+      <button 
+        onClick={scrollToTop}
+        className="fixed bottom-8 right-8 p-4 bg-gradient-to-r from-cyan-500 to-cyan-400 rounded-full hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-110 z-50"
+      >
+        <ArrowUp size={24} />
       </button>
 
       <style jsx>{`
@@ -145,6 +401,9 @@ export default function Home() {
         }
         .animation-delay-2000 {
           animation-delay: 2s;
+        }
+        .animation-delay-4000 {
+          animation-delay: 4s;
         }
       `}</style>
     </div>
