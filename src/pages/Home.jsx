@@ -270,22 +270,37 @@ export default function Home() {
             <div className="flex gap-4 pt-4">
               <button className="px-8 py-3.5 bg-gradient-to-r from-cyan-500 to-cyan-400 rounded-full font-semibold hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-105 tracking-wide">
                 View My Work
+                
               </button>
-              <button className="px-8 py-3.5 bg-white text-black rounded-full font-semibold hover:bg-gray-200 transition-all duration-300 hover:scale-105 tracking-wide">
-                My Resume
-              </button>
+
+              <a 
+                href="https://drive.google.com/file/d/16AqO5QJRWGOyLQe_BXFl3f8oSWeWPQiV/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >
+                  <button className="px-8 py-3.5 bg-white text-black rounded-full font-semibold hover:bg-gray-200 transition-all duration-300 hover:scale-105 tracking-wide">
+                    My Resume
+
+                  </button>
+
+                </a>
+
+
+
+
+
+
+              
             </div>
 
             <div className="flex gap-6 pt-8">
-              <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors">
+              <a href="https://www.linkedin.com/in/nityaasingh/" className="text-gray-400 hover:text-cyan-400 transition-colors">
                 <Linkedin size={28} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors">
-                <svg className="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                </svg>
-              </a>
-              <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors">
+             
+                
+              
+              <a href="https://github.com/nityasingh07" className="text-gray-400 hover:text-cyan-400 transition-colors">
                 <Github size={28} />
               </a>
             </div>
