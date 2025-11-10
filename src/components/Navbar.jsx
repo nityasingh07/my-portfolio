@@ -40,6 +40,9 @@ export default function Navbar() {
       setActive("home");
     } else if (location.pathname === "/about") {
       setActive("about");
+    } else if(location.pathname === "/skills") {
+      setActive("skills");
+
     }
   }, [location]);
 
@@ -72,6 +75,12 @@ export default function Navbar() {
           >
             About
           </Link>
+         
+
+
+
+            
+
           {["experience", "skills", "projects", "contact"].map((item) => (
             <button
               key={item}

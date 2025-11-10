@@ -6,6 +6,9 @@ export default function Home() {
   const [roleIndex, setRoleIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [typingSpeed, setTypingSpeed] = useState(150);
+  const [showRow1, setShowRow1] = useState(false);
+  const [showRow2, setShowRow2] = useState(false);
+  const [showRow3, setShowRow3] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -19,6 +22,7 @@ export default function Home() {
     "Open Source Contributor"
   ];
 
+  // Typewriter effect
   useEffect(() => {
     const handleTyping = () => {
       const currentRole = roles[roleIndex];
@@ -45,6 +49,27 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, [text, isDeleting, roleIndex, typingSpeed]);
 
+  // Skills animation trigger
+  useEffect(() => {
+    const handleScroll = () => {
+      const skillsSection = document.getElementById('skills');
+      if (skillsSection) {
+        const rect = skillsSection.getBoundingClientRect();
+        const inView = rect.top < window.innerHeight * 0.75;
+        
+        if (inView && !showRow1) {
+          setTimeout(() => setShowRow1(true), 300);
+          setTimeout(() => setShowRow2(true), 1500);
+          setTimeout(() => setShowRow3(true), 2700);
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check on mount
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [showRow1]);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -58,8 +83,57 @@ export default function Home() {
 
   const handleSubmit = () => {
     console.log('Form submitted:', formData);
-    // Add your form submission logic here
   };
+
+  // Skills data
+  const skillsRow1 = [
+    {
+      name: 'JavaScript',
+      icon: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg'
+    },
+    {
+      name: 'Python',
+      icon: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg'
+    },
+    {
+      name: 'C++',
+      icon: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg'
+    }
+  ];
+
+  const skillsRow2 = [
+    {
+      name: 'React.js',
+      icon: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg'
+    },
+    {
+      name: 'Tailwind CSS',
+      icon: 'https://cdn.simpleicons.org/tailwindcss/06B6D4'
+    },
+    {
+      name: 'Node.js',
+      icon: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg'
+    },
+    {
+      name: 'Express',
+      icon: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg'
+    }
+  ];
+
+  const skillsRow3 = [
+    {
+      name: 'MongoDB',
+      icon: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg'
+    },
+    {
+      name: 'MySQL',
+      icon: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg'
+    },
+    {
+      name: 'Git',
+      icon: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg'
+    }
+  ];
 
   return (
     <div className="bg-black text-white">
@@ -172,7 +246,6 @@ export default function Home() {
             <div className="flex-shrink-0">
               <div className="w-80 h-96 bg-gradient-to-br from-cyan-500/20 to-purple-500/20 rounded-3xl overflow-hidden border border-cyan-500/30">
                 <div className="w-full h-full flex items-center justify-center text-gray-500">
-                  {/* Placeholder for profile image */}
                   <span className="text-sm">Profile Image</span>
                 </div>
               </div>
@@ -239,13 +312,134 @@ export default function Home() {
         </div>
       </div>
 
-      {/* SKILLS SECTION */}
-      <div id="skills" className="min-h-screen relative py-20 px-16 flex items-center justify-center">
-        <div className="text-center">
-          <h2 className="text-5xl font-bold bg-gradient-to-r from-cyan-400 to-cyan-300 bg-clip-text text-transparent">
-            Skills
-          </h2>
-          <p className="text-gray-400 mt-4">Coming soon...</p>
+      {/* SKILLS SECTION - UPDATED */}
+      <div id="skills" className="min-h-screen relative py-20 px-16 overflow-hidden flex items-center justify-center">
+        {/* Animated background stars */}
+        <div className="absolute inset-0">
+          {[...Array(20)].map((_, i) => (
+            <div
+              key={`skills-star-${i}`}
+              className="absolute w-1 h-1 bg-white rounded-full animate-pulse"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 3}s`,
+                opacity: Math.random() * 0.5 + 0.2,
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Gradient blobs */}
+        <div className="absolute top-20 left-1/4 w-96 h-96 bg-purple-600 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-blob" />
+        <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-cyan-400 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-blob animation-delay-2000" />
+
+        <div className="relative z-10 w-full px-6 max-w-7xl mx-auto">
+          {/* Section Title */}
+          <div className="text-center mb-20">
+            <h2 className="text-5xl font-bold mb-4">
+              <span className="bg-gradient-to-r from-cyan-400 to-cyan-300 bg-clip-text text-transparent">
+                Skills & Tools
+              </span>
+            </h2>
+          </div>
+
+          {/* Skills Grid */}
+          <div className="space-y-16">
+            {/* Row 1 - From Right */}
+            <div className="flex justify-center gap-12 md:gap-16 lg:gap-20 flex-wrap items-center min-h-[140px]">
+              {skillsRow1.map((skill, index) => (
+                <div
+                  key={skill.name}
+                  className={`group transition-all duration-1000 ease-out ${
+                    showRow1 
+                      ? 'translate-x-0 opacity-100' 
+                      : 'translate-x-[200vw] opacity-0'
+                  }`}
+                  style={{ 
+                    transitionDelay: `${index * 200}ms`
+                  }}
+                >
+                  <div className="flex flex-col items-center gap-4">
+                    <div className="relative w-20 h-20 md:w-24 md:h-24 flex items-center justify-center">
+                      <div className="absolute inset-0 bg-cyan-500/30 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-150"/>
+                      <img 
+                        src={skill.icon} 
+                        alt={skill.name}
+                        className="w-full h-full relative z-10 transform group-hover:scale-110 transition-transform duration-300"
+                      />
+                    </div>
+                    <span className="text-base md:text-lg font-semibold text-cyan-400">
+                      {skill.name}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Row 2 - From Left */}
+            <div className="flex justify-center gap-12 md:gap-16 lg:gap-20 flex-wrap items-center min-h-[140px]">
+              {skillsRow2.map((skill, index) => (
+                <div
+                  key={skill.name}
+                  className={`group transition-all duration-1000 ease-out ${
+                    showRow2 
+                      ? 'translate-x-0 opacity-100' 
+                      : '-translate-x-[200vw] opacity-0'
+                  }`}
+                  style={{ 
+                    transitionDelay: `${index * 200}ms`
+                  }}
+                >
+                  <div className="flex flex-col items-center gap-4">
+                    <div className="relative w-20 h-20 md:w-24 md:h-24 flex items-center justify-center">
+                      <div className="absolute inset-0 bg-cyan-500/30 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-150"/>
+                      <img 
+                        src={skill.icon} 
+                        alt={skill.name}
+                        className="w-full h-full relative z-10 transform group-hover:scale-110 transition-transform duration-300"
+                        style={skill.name === 'Express' ? {filter: 'invert(1) brightness(2)'} : {}}
+                      />
+                    </div>
+                    <span className="text-base md:text-lg font-semibold text-cyan-400">
+                      {skill.name}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Row 3 - From Right */}
+            <div className="flex justify-center gap-12 md:gap-16 lg:gap-20 flex-wrap items-center min-h-[140px]">
+              {skillsRow3.map((skill, index) => (
+                <div
+                  key={skill.name}
+                  className={`group transition-all duration-1000 ease-out ${
+                    showRow3 
+                      ? 'translate-x-0 opacity-100' 
+                      : 'translate-x-[200vw] opacity-0'
+                  }`}
+                  style={{ 
+                    transitionDelay: `${index * 200}ms`
+                  }}
+                >
+                  <div className="flex flex-col items-center gap-4">
+                    <div className="relative w-20 h-20 md:w-24 md:h-24 flex items-center justify-center">
+                      <div className="absolute inset-0 bg-cyan-500/30 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-150"/>
+                      <img 
+                        src={skill.icon} 
+                        alt={skill.name}
+                        className="w-full h-full relative z-10 transform group-hover:scale-110 transition-transform duration-300"
+                      />
+                    </div>
+                    <span className="text-base md:text-lg font-semibold text-cyan-400">
+                      {skill.name}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
 
@@ -289,7 +483,6 @@ export default function Home() {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 via-pink-500/20 to-purple-500/20 rounded-full blur-3xl" />
                 <div className="relative">
-                  {/* Placeholder for astronaut image */}
                   <div className="w-96 h-96 bg-gradient-to-br from-teal-900/50 to-purple-900/50 rounded-full flex items-center justify-center border border-cyan-400/30">
                     <span className="text-gray-500 text-sm">Astronaut Image</span>
                   </div>
@@ -308,7 +501,6 @@ export default function Home() {
               </div>
 
               <div className="space-y-6">
-                {/* Name Field */}
                 <div>
                   <label className="block text-white text-sm mb-2">
                     Your Name <span className="text-red-500">*</span>
@@ -323,7 +515,6 @@ export default function Home() {
                   />
                 </div>
 
-                {/* Email Field */}
                 <div>
                   <label className="block text-white text-sm mb-2">
                     Your Email <span className="text-red-500">*</span>
@@ -338,7 +529,6 @@ export default function Home() {
                   />
                 </div>
 
-                {/* Subject Field */}
                 <div>
                   <label className="block text-white text-sm mb-2">
                     Give a Subject <span className="text-red-500">*</span>
@@ -353,7 +543,6 @@ export default function Home() {
                   />
                 </div>
 
-                {/* Message Field */}
                 <div>
                   <label className="block text-white text-sm mb-2">
                     Explain Your Idea
@@ -368,7 +557,6 @@ export default function Home() {
                   />
                 </div>
 
-                {/* Submit Button */}
                 <button
                   onClick={handleSubmit}
                   className="w-full py-4 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-lg font-semibold text-white text-lg hover:shadow-lg hover:shadow-cyan-400/50 transition-all duration-300 hover:scale-105"
