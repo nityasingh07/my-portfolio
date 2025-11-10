@@ -91,10 +91,7 @@ export default function About() {
         </div>
       </div>
 
-      {/* Reach Out button */}
-      <button className="fixed top-6 right-6 px-6 py-3 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full font-semibold hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105 z-20 tracking-wide">
-        Reach Out
-      </button>
+      
 
       {/* Scroll to Top Button */}
       <button 
