@@ -264,7 +264,7 @@ export default function Home() {
             </div>
 
             <p className="text-gray-300 text-lg max-w-xl leading-relaxed">
-              I turn complex ideas into seamless, high-impact web experiences - building modern, scalable, and lightning-fast applications that make a difference.
+              Hi, I’m Nitya Singh, an ambitious and inquisitive student pursuing B.Tech in Computer Science and Engineering with a specialization in Artificial Intelligence from Indira Gandhi Delhi Technical University for Women (IGDTUW). I’m a Full Stack Developer and Open Source Contributor, passionate about creating efficient, user-focused web applications and contributing to innovative, collaborative tech communities.
             </p>
 
             <div className="flex gap-4 pt-4">
@@ -360,7 +360,7 @@ export default function Home() {
               </div>
 
               <p className="text-gray-300 text-lg leading-relaxed">
-                I build scalable, modern applications with a strong focus on clean architecture, performance, and delightful UX. My toolkit spans Java, React, Node.js, MongoDB, and Tailwind CSS — bringing ideas to life with smooth APIs and pixel-perfect interfaces.
+                I enjoy turning ideas into responsive, high-performing web applications with clean structure, seamless UI, and a focus on creating impactful user experiences. My toolkit spans JavaScript, React, Node.js, MongoDB, Express.js and Tailwind CSS — bringing ideas to life with smooth APIs and pixel-perfect interfaces.
               </p>
 
               {/* Info Cards */}
@@ -395,7 +395,7 @@ export default function Home() {
           <div className="mt-20 text-center space-y-6">
             <h2 className="text-4xl font-bold">About Me</h2>
             <p className="text-gray-300 text-lg max-w-4xl mx-auto leading-relaxed">
-              I'm a Software Developer and Tech Enthusiast who loves crafting performant, user-centric web experiences. I focus on blending clean UI design with solid engineering — building fast, reliable, and accessible web applications.
+              I’m a tech enthusiast who loves exploring how technology can shape ideas into reality. Beyond development, I have a strong interest in graphic design, where I enjoy blending creativity with clean, modern visuals. I strive to create experiences that combine visual appeal with purpose and usability.
             </p>
           </div>
         </div>
