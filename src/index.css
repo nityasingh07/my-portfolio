@@ -1,3 +1,7 @@
 @import "tailwindcss";
+html {
+    /* Yeh property smooth scrolling enable karti hai */
+    scroll-behavior: smooth; 
+}
 
 /* If you have any global custom CSS, place it below this line */

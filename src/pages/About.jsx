@@ -51,7 +51,7 @@ export default function About() {
             </div>
 
             <p className="text-gray-300 text-lg leading-relaxed">
-              I build scalable, modern applications with a strong focus on clean architecture, performance, and delightful UX. My toolkit spans Java, React, Node.js, MongoDB, and Tailwind CSS — bringing ideas to life with smooth APIs and pixel-perfect interfaces.
+              I enjoy turning ideas into responsive, high-performing web applications with clean structure, seamless UI, and a focus on creating impactful user experiences. My toolkit spans JavaScript, React, Node.js, MongoDB, Express.js and Tailwind CSS — bringing ideas to life with smooth APIs and pixel-perfect interfaces.
             </p>
 
             {/* Info Cards */}
@@ -72,12 +72,17 @@ export default function About() {
 
             {/* Action Buttons */}
             <div className="flex gap-4 pt-4">
-              <button className="px-8 py-3.5 bg-gradient-to-r from-cyan-500 to-cyan-400 rounded-full font-semibold hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-105 tracking-wide">
+              <a 
+              href="#projects"
+              className="px-8 py-3.5 bg-gradient-to-r from-cyan-500 to-cyan-400 rounded-full font-semibold hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-105 tracking-wide">
                 View Projects
-              </button>
-              <button className="px-8 py-3.5 bg-white text-black rounded-full font-semibold hover:bg-gray-200 transition-all duration-300 hover:scale-105 tracking-wide">
+              </a>
+              <a
+              href="#contact"
+
+               className="px-8 py-3.5 bg-white text-black rounded-full font-semibold hover:bg-gray-200 transition-all duration-300 hover:scale-105 tracking-wide">
                 Get in Touch
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -86,7 +91,7 @@ export default function About() {
         <div className="mt-20 text-center space-y-6">
           <h2 className="text-4xl font-bold">About Me</h2>
           <p className="text-gray-300 text-lg max-w-4xl mx-auto leading-relaxed">
-            I'm a Software Developer and Tech Enthusiast who loves crafting performant, user-centric web experiences. I focus on blending clean UI design with solid engineering — building fast, reliable, and accessible web applications.
+             I’m a tech enthusiast who loves exploring how technology can shape ideas into reality. Beyond development, I have a strong interest in graphic design, where I enjoy blending creativity with clean, modern visuals. I strive to create experiences that combine visual appeal with purpose and usability.
           </p>
         </div>
       </div>

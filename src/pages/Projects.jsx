@@ -16,7 +16,7 @@ export default function Projects() {
       description: "A creative frontend-only 3D portfolio experiment that integrates dynamic 3D models and smooth animations — built to explore advanced WebGL and Three.js rendering.",
       image: "https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=800&q=80",
       tags: ["React", "Three.js", "Vite", "Framer Motion", "Tailwind CSS"],
-      github: "https://github.com/yourusername/project2"
+      github: "https://githubs.com/yourusername/project2"
     },
     {
       id: 3,
@@ -29,7 +29,8 @@ export default function Projects() {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    // 👇 ID (id="projects") ko yahan component ke root element par add karna hai
+    <div id="projects" className="min-h-screen bg-black text-white"> 
       {/* Projects Section */}
       <div className="relative py-20 px-8 md:px-16 overflow-hidden">
         {/* Animated background stars */}

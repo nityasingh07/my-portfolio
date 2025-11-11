@@ -268,10 +268,13 @@ export default function Home() {
             </p>
 
             <div className="flex gap-4 pt-4">
-              <button className="px-8 py-3.5 bg-gradient-to-r from-cyan-500 to-cyan-400 rounded-full font-semibold hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-105 tracking-wide">
+              <a
+              href="#projects"
+              
+              className="px-8 py-3.5 bg-gradient-to-r from-cyan-500 to-cyan-400 rounded-full font-semibold hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-105 tracking-wide">
                 View My Work
                 
-              </button>
+              </a>
 
               <a 
                 href="https://drive.google.com/file/d/16AqO5QJRWGOyLQe_BXFl3f8oSWeWPQiV/view?usp=drive_link"
@@ -313,9 +316,12 @@ export default function Home() {
         </div>
 
         {/* Reach Out button */}
-        <button className="fixed top-6 right-6 px-6 py-3 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full font-semibold hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105 z-50 tracking-wide">
+
+        <a 
+        href="#contact"
+        className="fixed top-6 right-6 px-6 py-3 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full font-semibold hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105 z-50 tracking-wide">
           Reach Out
-        </button>
+        </a>
       </div>
 
       {/* ABOUT SECTION */}
@@ -381,12 +387,17 @@ export default function Home() {
 
               {/* Action Buttons */}
               <div className="flex gap-4 pt-4">
-                <button className="px-8 py-3.5 bg-gradient-to-r from-cyan-500 to-cyan-400 rounded-full font-semibold hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-105 tracking-wide">
+                <a
+                href="#projects"
+                 className="px-8 py-3.5 bg-gradient-to-r from-cyan-500 to-cyan-400 rounded-full font-semibold hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-105 tracking-wide">
                   View Projects
-                </button>
-                <button className="px-8 py-3.5 bg-white text-black rounded-full font-semibold hover:bg-gray-200 transition-all duration-300 hover:scale-105 tracking-wide">
+                </a>
+                <a 
+                href="#contact"
+
+                className="px-8 py-3.5 bg-white text-black rounded-full font-semibold hover:bg-gray-200 transition-all duration-300 hover:scale-105 tracking-wide">
                   Get in Touch
-                </button>
+                </a>
               </div>
             </div>
           </div>
