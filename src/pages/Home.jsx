@@ -342,6 +342,7 @@ export default function Home() {
 
 
 
+
               
 
     
@@ -382,10 +383,23 @@ export default function Home() {
           <div className="flex items-start gap-16">
             {/* Profile Image */}
             <div className="flex-shrink-0">
-              <div className="w-80 h-96 bg-gradient-to-br from-cyan-500/20 to-purple-500/20 rounded-3xl overflow-hidden border border-cyan-500/30">
-                <div className="w-full h-full flex items-center justify-center text-gray-500">
-                  <span className="text-sm">Profile Image</span>
-                </div>
+              <div className="relative w-80 h-96 rounded-3xl overflow-hidden border border-cyan-400/40 shadow-[0_0_25px_rgba(34,211,238,0.3)] transition-all duration-500 hover:scale-105 hover:shadow-[0_0_40px_rgba(34,211,238,0.6)]">
+              
+                  <img
+                  src="/download.jpg"
+                  alt="Profile"
+                  className="w-full h-full object-cover"
+                />
+                <div 
+                  className="absolute inset-0 rounded-3xl ring-2 ring-cyan-400/30 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                    </div>
+
+
+
+                
+
+
+                
               </div>
             </div>
 
@@ -904,3 +918,5 @@ export default function Home() {
     </div>
   );
 }
+
+
