@@ -1,5 +1,12 @@
 import { useState, useEffect } from 'react';
+import My3DModel from "../components/My3DModel"; 
+
+import React, { Suspense } from "react";
+
 import { Linkedin, Github, ArrowUp, Briefcase } from 'lucide-react';
+import { Canvas } from '@react-three/fiber';
+
+import { OrbitControls } from '@react-three/drei';
 
 export default function Home() {
   const [text, setText] = useState('');
@@ -192,9 +199,9 @@ export default function Home() {
   const projects = [
     {
       id: 1,
-      title: "EcoTransfer",
+      title: "EcoTransform",
       description: "A sustainability-driven platform connecting small-scale artisans and waste suppliers — promoting recycling and upcycling with AI-driven recommendations and blockchain-based transparency..",
-      image: "public/Screenshot 2025-11-12 003811.png",
+      image: "/Screenshot 2025-11-12 003811.png",
       tags: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS", "Blockchain", "AI Inetegration"],
       github: "https://github.com/jpothesis/ecotransform"
     },
@@ -202,7 +209,7 @@ export default function Home() {
       id: 2,
       title: "Dietly",
       description: "AI-powered web application that helps users generate customized meal plans based on their health goals, dietary preferences, and calorie requirements. It simplifies nutrition tracking and provides a visually engaging dashboard to monitor daily intake, making healthy eating easy and accessible.",
-      image: "public/Screenshot 2025-11-12 020532.png",
+      image: "/Screenshot 2025-11-12 020532.png",
       tags: ["  Vite", "React Router", "Express.js", "Google Gemini API", "Vercel", "JWT", "bcrypt.js"],
       github: "https://github.com/vaibhavisingh876/dietly"
     },
@@ -220,6 +227,7 @@ export default function Home() {
   const projectCardStates = [showProjectCard1, showProjectCard2, showProjectCard3];
 
   return (
+    
     <div className="bg-black text-white">
       {/* HOME SECTION */}
       <div id="home" className="min-h-screen relative overflow-hidden">
@@ -296,6 +304,8 @@ export default function Home() {
               
             </div>
 
+
+
             <div className="flex gap-6 pt-8">
               <a href="https://www.linkedin.com/in/nityaasingh/" className="text-gray-400 hover:text-cyan-400 transition-colors">
                 <Linkedin size={28} />
@@ -307,12 +317,35 @@ export default function Home() {
                 <Github size={28} />
               </a>
             </div>
+
           </div>
 
           {/* Placeholder for 3D Character */}
-          <div className="flex-1 flex items-center justify-center">
-            {/* 3D character will be added later */}
+          <div className="flex-1 flex items-center justify-center h-[600px]">
+            <div className="w-full h-[500px] rounded-2xl overflow-hidden shadow-lg bg-transparent">
+              <Suspense fallback={<div className="text-gray-400 text-center pt-10">Loading 3D Model...</div>}>
+                <Canvas camera={{ position: [0, 1, 3] }}>
+                  <ambientLight intensity={1.5} />
+                  <directionalLight position={[5, 5, 5]} intensity={2} />
+                  <My3DModel />
+                  <OrbitControls enableZoom={true}  />
+                </Canvas>
+              </Suspense>
+            </div>
           </div>
+
+
+
+
+
+
+
+
+
+              
+
+    
+  
         </div>
 
         {/* Reach Out button */}
@@ -377,7 +410,7 @@ export default function Home() {
                 </div>
                 <div className="border border-gray-700 rounded-xl p-6 h-28 hover:border-cyan-500/50 transition-colors flex flex-col justify-center">
                   <p className="text-gray-400 text-sm mb-2">Specialty</p>
-                  <p className="text-white text-xl font-semibold">Full Stack</p>
+                  <p className="text-white text-xl font-semibold">Frontend Developer</p>
                 </div>
                 <div className="border border-gray-700 rounded-xl p-6 h-28 hover:border-cyan-500/50 transition-colors flex flex-col justify-center">
                   <p className="text-gray-400 text-sm mb-2">Focus</p>
