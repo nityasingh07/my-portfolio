@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import My3DModel from "../components/My3DModel"; 
+import { BrainModel } from "../components/brainModel";
 
 import React, { Suspense } from "react";
 
@@ -264,7 +265,7 @@ export default function Home() {
               
               {/* Typewriter effect */}
               <div className="h-12 flex items-center">
-                <span className="text-2xl text-cyan-400 font-medium">
+                <span className="text-3xl font-bold bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent">
                   {text}
                   <span className="animate-pulse">|</span>
                 </span>
@@ -272,7 +273,7 @@ export default function Home() {
             </div>
 
             <p className="text-gray-300 text-lg max-w-xl leading-relaxed">
-              Hi, I’m Nitya Singh, an ambitious and inquisitive student pursuing B.Tech in Computer Science and Engineering with a specialization in Artificial Intelligence from Indira Gandhi Delhi Technical University for Women (IGDTUW). I’m a Full Stack Developer and Open Source Contributor, passionate about creating efficient, user-focused web applications and contributing to innovative, collaborative tech communities.
+              Hi, I’m Nitya Singh, an ambitious and inquisitive student pursuing B.Tech in Computer Science and Engineering with a specialization in Artificial Intelligence from IGDTUW. I’m a Full Stack Developer and Open Source Contributor, passionate about creating efficient, user-focused web applications and contributing to innovative, collaborative tech communities.
             </p>
 
             <div className="flex gap-4 pt-4">
@@ -307,14 +308,14 @@ export default function Home() {
 
 
             <div className="flex gap-6 pt-8">
-              <a href="https://www.linkedin.com/in/nityaasingh/" className="text-gray-400 hover:text-cyan-400 transition-colors">
-                <Linkedin size={28} />
+              <a href="https://www.linkedin.com/in/nityaasingh/" className="text-gray-400 hover:text-rose-400 transition-colors">
+                <Linkedin size={30} />
               </a>
              
                 
               
-              <a href="https://github.com/nityasingh07" className="text-gray-400 hover:text-cyan-400 transition-colors">
-                <Github size={28} />
+              <a href="https://github.com/nityasingh07" className="text-gray-400 hover:text-rose-400 transition-colors">
+                <Github size={30} />
               </a>
             </div>
 
@@ -406,7 +407,7 @@ export default function Home() {
             {/* About Content */}
             <div className="flex-1 space-y-8">
               <div className="space-y-2">
-                <h2 className="text-5xl font-bold bg-gradient-to-r from-cyan-400 to-cyan-300 bg-clip-text text-transparent whitespace-nowrap">
+                <h2 className="text-5xl font-bold leading-tight bg-gradient-to-r from-cyan-400 to-cyan-300 bg-clip-text text-transparent whitespace-nowrap">
                   Nitya Singh
                 </h2>
                 <p className="text-2xl text-gray-300 font-medium">Full Stack Developer</p>
@@ -485,7 +486,7 @@ export default function Home() {
           {/* Section Title */}
           <div className="text-center mb-20">
             <h2 className="text-5xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-cyan-400 to-cyan-300 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-indigo-500 to-cyan-400 bg-clip-text text-transparent">
                 Experience
               </span>
             </h2>
@@ -564,7 +565,7 @@ export default function Home() {
           {/* Section Title */}
           <div className="text-center mb-20">
             <h2 className="text-5xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-cyan-400 to-cyan-300 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-indigo-500 to-cyan-400 bg-clip-text text-transparent">
                 Skills & Tools
               </span>
             </h2>
@@ -695,7 +696,7 @@ export default function Home() {
           {/* Section Title */}
           <div className="text-center mb-16">
             <h2 className="text-5xl md:text-6xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-cyan-400 to-cyan-300 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-indigo-500 to-cyan-400 bg-clip-text text-transparent">
                 Projects
               </span>
             </h2>
@@ -800,14 +801,34 @@ export default function Home() {
         <div className="relative z-10 max-w-7xl mx-auto px-16">
           <div className="grid grid-cols-2 gap-16 items-center">
             {/* Left side - Astronaut Image */}
-            <div className="flex items-center justify-center">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 via-pink-500/20 to-purple-500/20 rounded-full blur-3xl" />
-                <div className="relative">
-                  <div className="w-96 h-96 bg-gradient-to-br from-teal-900/50 to-purple-900/50 rounded-full flex items-center justify-center border border-cyan-400/30">
-                    <span className="text-gray-500 text-sm">Astronaut Image</span>
-                  </div>
-                </div>
+            <div className="flex-1 flex items-center justify-center h-[600px]">
+              <div className="w-full h-[500px] rounded-2xl overflow-hidden shadow-lg bg-gradient-to-br from-indigo-950/50 via-blue-900/40 to-violet-950/50 border border-indigo-500/30">
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20  to-purple-500/20 rounded-full blur-3xl" />
+               
+              <Suspense fallback={<div className="text-gray-400 text-center pt-10">Loading 3D Brain...</div>}>
+                <Canvas 
+                   camera={{ position: [0, 1, 3] }}
+                   gl={{ alpha: true }}
+                   style={{ backgroundColor: "transparent" }}
+
+
+                  
+                >
+                  <ambientLight intensity={1.2} />
+                  <directionalLight position={[5, 5, 5]} intensity={2} />
+                  <BrainModel />
+                  <spotLight position={[0, 3, 2]} angle={0.3} intensity={1.5} color="#88ccff" />
+
+                  <OrbitControls enableZoom={true} />
+
+
+
+                </Canvas>
+              </Suspense>
+
+               
+                 
+                
               </div>
             </div>
 
@@ -815,7 +836,7 @@ export default function Home() {
             <div className="space-y-8">
               <div>
                 <h2 className="text-5xl font-bold mb-2">
-                  <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-indigo-500 to-cyan-400  bg-clip-text text-transparent">
                     Let's Work Together
                   </span>
                 </h2>
@@ -880,7 +901,7 @@ export default function Home() {
 
                 <button
                   onClick={handleSubmit}
-                  className="w-full py-4 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-lg font-semibold text-white text-lg hover:shadow-lg hover:shadow-cyan-400/50 transition-all duration-300 hover:scale-105"
+                  className="w-full py-4 bg-gradient-to-r from-indigo-500 to-cyan-400 rounded-lg font-semibold text-white text-lg hover:shadow-lg hover:shadow-cyan-400/50 transition-all duration-300 hover:scale-105"
                 >
                   Send Message
                 </button>
