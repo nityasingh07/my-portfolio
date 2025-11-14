@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
-import Girl from "../components/girl.jsx";
+import Girl from "../components/Girl";
+
+
 import React, { Suspense } from "react";
 import HelloIntro from "../components/HelloIntro.jsx";
 
