@@ -1,11 +1,8 @@
 import { useState, useEffect } from 'react';
-import Girl from "../components/Girl.jsx";
-
-
-
-
-
+import Girl from "../components/girl.jsx";
 import React, { Suspense } from "react";
+import HelloIntro from "../components/HelloIntro.jsx";
+
 
 import { Linkedin, Github, ArrowUp, Briefcase } from 'lucide-react';
 import { Canvas } from '@react-three/fiber';
@@ -13,6 +10,7 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 
 export default function Home() {
+  const [showIntro, setShowIntro] = useState(true);
   const [text, setText] = useState('');
   const [roleIndex, setRoleIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -231,6 +229,18 @@ export default function Home() {
   const projectCardStates = [showProjectCard1, showProjectCard2, showProjectCard3];
 
   return (
+    <>
+      {showIntro ? (
+         <HelloIntro onFinish={() => setShowIntro(false)} />
+          
+       ) : (
+
+
+    
+
+    
+
+
     
     <div className="bg-black text-white">
       {/* HOME SECTION */}
@@ -327,33 +337,21 @@ export default function Home() {
           {/* Placeholder for 3D Character */}
           <div className="flex-1 flex items-center justify-center h-[600px]">
             <div className="w-full h-[500px] rounded-2xl overflow-hidden shadow-lg bg-transparent">
-              <Suspense fallback={<div className="text-white">Loading...</div>}>
-                <Canvas camera={{ position: [1.2, 0.5, 0], near: 0.1, far: 100  }}
-                   gl={{ preserveDrawingBuffer: true }}
-                   >
+              <Suspense fallback={null}>
+                <Canvas
+                
+                >   
                   <ambientLight intensity={1.5} />
                   <directionalLight position={[5, 5, 5]} intensity={2} />
                   <Girl />
-                  <OrbitControls enableZoom={false}  />
+                  <OrbitControls enableZoom={false}
+                  maxPolarAngle={Math.PI}  minPolarAngle={0} minAzimuthAngle={-Math.PI } maxAzimuthAngle={Math.PI } />
                 </Canvas>
               </Suspense>
             </div>
           </div>
-
-
-
-
-
-
-
-
-
-
-              
-
-    
-  
         </div>
+
 
         {/* Reach Out button */}
 
@@ -798,6 +796,7 @@ export default function Home() {
           ))}
         </div>
 
+
         {/* Gradient blobs */}
         <div className="absolute top-20 left-1/4 w-96 h-96 bg-purple-600 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-blob" />
         <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-cyan-400 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-blob animation-delay-2000" />
@@ -942,7 +941,12 @@ export default function Home() {
         }
       `}</style>
     </div>
+    )}
+   </>
+  
+
   );
 }
+
 
 

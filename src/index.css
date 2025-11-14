@@ -5,3 +5,13 @@ html {
 }
 
 /* If you have any global custom CSS, place it below this line */
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: scale(0.9); }
+  20% { opacity: 1; transform: scale(1); }
+  80% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.9); }
+}
+
+.animate-fade {
+  animation: fadeInOut 0.5s ease-in-out;
+}
