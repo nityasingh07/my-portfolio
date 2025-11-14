@@ -1,9 +1,12 @@
 import { useGLTF, Center } from "@react-three/drei";
 import { useRef, useState, useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
+useGLTF.preload("/models/girl.glb");
+
 
 export default function Girl() {
   const { scene } = useGLTF("/models/girl.glb");
+
 
   const modelRef = useRef();
   const [startAnim, setStartAnim] = useState(false);
@@ -34,7 +37,7 @@ export default function Girl() {
       <primitive
         ref={modelRef}
         object={scene}
-        scale={1.6}
+        scale={3}
         rotation={[0, Math.PI / 1.5, 0]} // Start at a side angle
       />
     </Center>

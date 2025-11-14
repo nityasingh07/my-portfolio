@@ -782,7 +782,7 @@ export default function Home() {
       <div id="contact" className="min-h-screen relative overflow-hidden py-20">
         {/* Animated background stars */}
         <div className="absolute inset-0">
-          {[...Array(30)].map((_, i) => (
+          {[...Array(20)].map((_, i) => (
             <div
               key={`contact-star-${i}`}
               className="absolute w-1 h-1 bg-white rounded-full animate-pulse"
@@ -798,42 +798,24 @@ export default function Home() {
 
 
         {/* Gradient blobs */}
-        <div className="absolute top-20 left-1/4 w-96 h-96 bg-purple-600 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-blob" />
+        <div className="absolute top-20 left-1/4 w-96 h-96 bg-purple-600 rounded-full mix-blend-screen filter blur-3xl opacity-10 animate-blob" />
         <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-cyan-400 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-blob animation-delay-2000" />
         <div className="absolute top-1/2 right-1/3 w-80 h-80 bg-pink-500 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-blob animation-delay-4000" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-16">
           <div className="grid grid-cols-2 gap-16 items-center">
             {/* Left side - Astronaut Image */}
-            <div className="flex-1 flex items-center justify-center h-[600px]">
-              <div className="w-full h-[500px] rounded-2xl overflow-hidden shadow-lg bg-gradient-to-br from-indigo-950/50 via-blue-900/40 to-violet-950/50 border border-indigo-500/30">
+            <div className="flex-1 flex items-center justify-center h-[600px] relative">
+
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20  to-purple-500/20 rounded-full blur-3xl" />
+                <img
+                 src="/brain.png"
+                 alt="Brain"
+                 className="relative w-[450px] h-[450px] object-contain drop-shadow-2xl"
+                  />
                
-              <Suspense fallback={<div className="text-gray-400 text-center pt-10">Loading 3D Brain...</div>}>
-                <Canvas 
-                   camera={{ position: [0, 1, 3] }}
-                   gl={{ alpha: true }}
-                   style={{ backgroundColor: "transparent" }}
 
-
-                  
-                >
-                  <ambientLight intensity={1.2} />
-                  <directionalLight position={[5, 5, 5]} intensity={2} />
-                 
-                  <spotLight position={[0, 3, 2]} angle={0.3} intensity={1.5} color="#88ccff" />
-
-                  <OrbitControls enableZoom={true} />
-
-
-
-                </Canvas>
-              </Suspense>
-
-               
-                 
-                
-              </div>
+            
             </div>
 
             {/* Right side - Contact Form */}
@@ -905,7 +887,8 @@ export default function Home() {
 
                 <button
                   onClick={handleSubmit}
-                  className="w-full py-4 bg-gradient-to-r from-indigo-500 to-cyan-400 rounded-lg font-semibold text-white text-lg hover:shadow-lg hover:shadow-cyan-400/50 transition-all duration-300 hover:scale-105"
+                  className="w-full py-3 rounded-xl bg-gradient-to-r from-[#ff00cc] to-[#3333ff] text-white font-semibold text-lg shadow-lg hover:opacity-90 transition-all
+"
                 >
                   Send Message
                 </button>
