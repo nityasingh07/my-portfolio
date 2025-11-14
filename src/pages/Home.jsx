@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
-import My3DModel from "../components/My3DModel"; 
-import { BrainModel } from "../components/brainModel";
+import Girl from "../components/Girl.jsx";
+
+
+
+
 
 import React, { Suspense } from "react";
 
@@ -324,12 +327,14 @@ export default function Home() {
           {/* Placeholder for 3D Character */}
           <div className="flex-1 flex items-center justify-center h-[600px]">
             <div className="w-full h-[500px] rounded-2xl overflow-hidden shadow-lg bg-transparent">
-              <Suspense fallback={<div className="text-gray-400 text-center pt-10">Loading 3D Model...</div>}>
-                <Canvas camera={{ position: [0, 1, 3] }}>
+              <Suspense fallback={<div className="text-white">Loading...</div>}>
+                <Canvas camera={{ position: [1.2, 0.5, 0], near: 0.1, far: 100  }}
+                   gl={{ preserveDrawingBuffer: true }}
+                   >
                   <ambientLight intensity={1.5} />
                   <directionalLight position={[5, 5, 5]} intensity={2} />
-                  <My3DModel />
-                  <OrbitControls enableZoom={true}  />
+                  <Girl />
+                  <OrbitControls enableZoom={false}  />
                 </Canvas>
               </Suspense>
             </div>
@@ -816,7 +821,7 @@ export default function Home() {
                 >
                   <ambientLight intensity={1.2} />
                   <directionalLight position={[5, 5, 5]} intensity={2} />
-                  <BrainModel />
+                 
                   <spotLight position={[0, 3, 2]} angle={0.3} intensity={1.5} color="#88ccff" />
 
                   <OrbitControls enableZoom={true} />
