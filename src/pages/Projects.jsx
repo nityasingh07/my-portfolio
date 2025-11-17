@@ -1,30 +1,32 @@
 import { Github, ExternalLink } from 'lucide-react';
 
 export default function Projects() {
+
   const projects = [
     {
       id: 1,
-      title: "IGDTUW Verse",
-      description: "A digital community platform for IGDTUW students featuring assignments, discussions, events, and resources in one place — building a connected campus experience.",
-      image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80",
-      tags: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
-      github: "https://github.com/yourusername/project1"
+      title: "EcoTransform",
+      description: "A sustainability-driven platform connecting small-scale artisans and waste suppliers — promoting recycling and upcycling with AI-driven recommendations and blockchain-based transparency..",
+      image: "/Screenshot 2025-11-12 003811.png",
+      tags: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS", "Blockchain", "AI Inetegration"],
+      github: "https://github.com/jpothesis/ecotransform",
+      website: "https://ecotransform-rho.vercel.app/"
     },
     {
       id: 2,
-      title: "3D Interactive Website",
-      description: "A creative frontend-only 3D portfolio experiment that integrates dynamic 3D models and smooth animations — built to explore advanced WebGL and Three.js rendering.",
-      image: "https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=800&q=80",
-      tags: ["React", "Three.js", "Vite", "Framer Motion", "Tailwind CSS"],
-      github: "https://githubs.com/yourusername/project2"
+      title: "Dietly",
+      description: "AI-powered web application that helps users generate customized meal plans based on their health goals, dietary preferences, and calorie requirements. It simplifies nutrition tracking and provides a visually engaging dashboard to monitor daily intake, making healthy eating easy and accessible.",
+      image: "/Screenshot 2025-11-12 020532.png",
+      tags: ["  Vite", "React Router", "Express.js", "Google Gemini API", "Vercel", "JWT", "bcrypt.js"],
+      github: "https://github.com/vaibhavisingh876/dietly"
     },
     {
       id: 3,
-      title: "CareerGenie.AI",
-      description: "An AI-powered full-stack career assistant that helps users create resumes, prepare for interviews, and receive personalized career guidance — all through an intelligent, interactive dashboard.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-      tags: ["React", "TypeScript", "Tailwind CSS", "Node.js", "MongoDB", "OpenAI API", "Vite", "Express"],
-      github: "https://github.com/yourusername/project3"
+      title: "Portfolio Website",
+      description: "Co-Align is an innovative AI-driven roommate matching platform built to enhance women’s co-living experiences. By analyzing lifestyle preferences, habits, and personalities, the system intelligently recommends compatible roommates. It integrates AI-based matching algorithms and the Omnidim.io Voice Assistant to deliver a seamless, personalized, and safe co-living journey for every user.",
+      image: "public/ss.png",
+      tags: ["React.js", "Vite", "Tailwind CSS"],
+      github: "https://github.com/nityasingh07/my-portfolio"
     }
   ];
 
@@ -122,8 +124,20 @@ export default function Projects() {
                       className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-white/10 hover:bg-white/20 text-white rounded-lg font-medium transition-all duration-300 hover:scale-105 backdrop-blur-sm border border-white/10"
                     >
                       <Github className="w-4 h-4" />
-                      <span>GitHub</span>
+                      <span> GitHub</span>
                     </a>
+                    <a
+                      href={project.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-white/10 hover:bg-white/20 text-white rounded-lg font-medium transition-all duration-300 hover:scale-105 backdrop-blur-sm border border-white/10"
+                    >
+                      
+                      <ExternalLink className="w-4 h-4" />
+                      <span>Website</span>
+                    </a>
+          
+                    
                   </div>
                 </div>
 

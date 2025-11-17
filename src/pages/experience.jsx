@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { Briefcase } from 'lucide-react';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./Home";
+import React, { useState } from "react";
 
 const Experience = () => {
   const [showCard1, setShowCard1] = useState(false);
@@ -137,5 +138,7 @@ const Experience = () => {
     </div>
   );
 };
-
 export default Experience;
+
+
+

@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import Girl from "../components/Girl";
+import {  ExternalLink } from "lucide-react";
+
 
 
 import React, { Suspense } from "react";
@@ -207,7 +209,8 @@ export default function Home() {
       description: "A sustainability-driven platform connecting small-scale artisans and waste suppliers — promoting recycling and upcycling with AI-driven recommendations and blockchain-based transparency..",
       image: "/Screenshot 2025-11-12 003811.png",
       tags: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS", "Blockchain", "AI Inetegration"],
-      github: "https://github.com/jpothesis/ecotransform"
+      github: "https://github.com/jpothesis/ecotransform",
+      website: "https://ecotransform-rho.vercel.app/"
     },
     {
       id: 2,
@@ -219,11 +222,11 @@ export default function Home() {
     },
     {
       id: 3,
-      title: "Co-Align",
+      title: "Portfolio Website",
       description: "Co-Align is an innovative AI-driven roommate matching platform built to enhance women’s co-living experiences. By analyzing lifestyle preferences, habits, and personalities, the system intelligently recommends compatible roommates. It integrates AI-based matching algorithms and the Omnidim.io Voice Assistant to deliver a seamless, personalized, and safe co-living journey for every user.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-      tags: ["React.js", "Node.js", "Tailwind CSS", "Omnidim.io Voice Assistant API", "MongoDB",],
-      github: "https://github.com/nityasingh07/co-align"
+      image: "public/ss.png",
+      tags: ["React.js", "Vite", "Tailwind CSS"],
+      github: "https://github.com/nityasingh07/my-portfolio"
     }
   ];
 
@@ -288,7 +291,7 @@ export default function Home() {
             </div>
 
             <p className="text-gray-300 text-lg max-w-xl leading-relaxed">
-              Hi, I’m Nitya Singh, an ambitious and inquisitive student pursuing B.Tech in Computer Science and Engineering with a specialization in Artificial Intelligence from IGDTUW. I’m a Full Stack Developer and Open Source Contributor, passionate about creating efficient, user-focused web applications and contributing to innovative, collaborative tech communities.
+              Hi, I’m Nitya Singh, an ambitious and inquisitive student pursuing B.Tech in Computer Science and Engineering with a specialization in Artificial Intelligence from IGDTUW. A Full Stack Developer and Open Source Contributor, passionate about creating efficient, user-focused web applications and contributing to innovative, collaborative tech communities.
             </p>
 
             <div className="flex gap-4 pt-4">
@@ -671,6 +674,8 @@ export default function Home() {
                 </div>
               ))}
             </div>
+
+            
           </div>
         </div>
       </div>
@@ -771,6 +776,24 @@ export default function Home() {
                     </a>
                   </div>
                 </div>
+                <a
+                  href={project.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-white/10 hover:bg-white/20 text-white rounded-lg font-medium transition-all duration-300 hover:scale-105 backdrop-blur-sm border border-white/10"
+                    
+                    >
+                      <website className="w-4 h-4" />
+                  
+                    <ExternalLink className="w-4 h-4" />
+                    <span>Website</span>
+
+
+                  </a>
+                  
+
+
+
 
                 {/* Decorative Corner Gradient */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-cyan-400/20 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

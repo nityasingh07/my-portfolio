@@ -18,6 +18,7 @@ const Skills = () => {
     };
   }, []);
 
+  // Skills data
   const skillsRow1 = [
     {
       name: 'JavaScript',
@@ -89,11 +90,11 @@ const Skills = () => {
         {/* Section Title */}
         <div className="text-center mb-20">
           <h2 className="text-5xl md:text-6xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-cyan-400 to-pink-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-indigo-500 to-cyan-400 bg-clip-text text-transparent">
               Skills & Tools
             </span>
           </h2>
-          <div className="h-1 w-32 bg-gradient-to-r from-cyan-400 to-pink-500 mx-auto rounded-full"/>
+          <div className="bg-gradient-to-r from-indigo-500 to-cyan-400 bg-clip-text text-transparen"/>
         </div>
 
         {/* Skills Grid */}
@@ -170,39 +171,37 @@ const Skills = () => {
           </div>
 
           {/* Row 3 - From Right */}
-          <div className="flex justify-center gap-10 md:gap-14 lg:gap-20 flex-wrap items-center min-h-[140px]">
-            {skillsRow3.map((skill, index) => (
-              <div
-                key={skill.name}
-                className={`group transition-all duration-1000 ease-out ${
-                  showRow3 
-                    ? 'translate-x-0 opacity-100' 
-                    : 'translate-x-[200vw] opacity-0'
-                }`}
-                style={{ 
-                  transitionDelay: `${index * 200}ms`
-                }}
-              >
-                <div className="flex flex-col items-center gap-4">
-                  <div className="relative w-20 h-20 md:w-24 md:h-24 flex items-center justify-center">
-                    <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-pink-500 rounded-full blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-300 scale-150"/>
-                    <img 
-                      src={skill.icon} 
-                      alt={skill.name}
-                      className="w-full h-full relative z-10 transform group-hover:scale-110 transition-transform duration-300 drop-shadow-2xl"
-                      onError={(e) => {
-                        console.error(`Failed to load icon for ${skill.name}`);
-                        e.target.style.display = 'none';
-                      }}
-                    />
+            <div className="flex justify-center gap-12 md:gap-16 lg:gap-20 flex-wrap items-center min-h-[140px]">
+              {skillsRow3.map((skill, index) => (
+                <div
+                  key={skill.name}
+                  className={`group transition-all duration-1000 ease-out ${
+                    showRow3 
+                      ? 'translate-x-0 opacity-100' 
+                      : 'translate-x-[200vw] opacity-0'
+                  }`}
+                  style={{ 
+                    transitionDelay: `${index * 200}ms`
+                  }}
+                >
+                  <div className="flex flex-col items-center gap-4">
+                    <div className="relative w-20 h-20 md:w-24 md:h-24 flex items-center justify-center">
+                      <div className="absolute inset-0 bg-cyan-500/30 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-150"/>
+                      <img 
+                        src={skill.icon} 
+                        alt={skill.name}
+                        className="w-full h-full relative z-10 transform group-hover:scale-110 transition-transform duration-300"
+                      />
+                    </div>
+                    <span className="text-base md:text-lg font-semibold text-cyan-400">
+                      {skill.name}
+                    </span>
                   </div>
-                  <span className="text-base md:text-lg font-semibold bg-gradient-to-r from-cyan-400 to-pink-500 bg-clip-text text-transparent">
-                    {skill.name}
-                  </span>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+
+
         </div>
       </div>
     </div>
