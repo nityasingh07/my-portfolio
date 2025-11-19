@@ -15,3 +15,50 @@ html {
 .animate-fade {
   animation: fadeInOut 0.5s ease-in-out;
 }
+/* 🔥 UNIVERSAL RESPONSIVE FIXES (MUST HAVE) */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden !important;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* 🔥 Mobile Typography Fix */
+@media (max-width: 640px) {
+  h1 { font-size: 1.7rem !important; }
+  h2 { font-size: 1.4rem !important; }
+  p  { font-size: 0.95rem !important; }
+}
+
+/* 🔥 Section Spacing Fix for Mobile */
+@media (max-width: 768px) {
+  section {
+    padding: 1.5rem 1rem !important;
+  }
+}
+
+/* 🔥 Responsive Image Fix */
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* 🔥 Mobile Flex Layout Fix */
+@media (max-width: 768px) {
+  .flex {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Avoid tailwind card stretch */
+.card {
+  width: 100%;
+}
+

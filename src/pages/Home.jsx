@@ -1,16 +1,9 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from "react";
 import Girl from "../components/Girl";
 import {  ExternalLink } from "lucide-react";
-
-
-
-import React, { Suspense } from "react";
 import HelloIntro from "../components/HelloIntro.jsx";
-
-
 import { Linkedin, Github, ArrowUp, Briefcase } from 'lucide-react';
-import { Canvas } from '@react-three/fiber';
-
+import { Canvas } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei';
 
 export default function Home() {
@@ -226,7 +219,8 @@ export default function Home() {
       description: "Co-Align is an innovative AI-driven roommate matching platform built to enhance women’s co-living experiences. By analyzing lifestyle preferences, habits, and personalities, the system intelligently recommends compatible roommates. It integrates AI-based matching algorithms and the Omnidim.io Voice Assistant to deliver a seamless, personalized, and safe co-living journey for every user.",
       image: "public/ss.png",
       tags: ["React.js", "Vite", "Tailwind CSS"],
-      github: "https://github.com/nityasingh07/my-portfolio"
+      github: "https://github.com/nityasingh07/my-portfolio",
+      website:""
     }
   ];
 
@@ -271,19 +265,19 @@ export default function Home() {
         <div className="absolute top-40 right-1/4 w-96 h-96 bg-pink-600 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-blob animation-delay-2000" />
 
         {/* Main content */}
-        <div className="relative z-10 flex items-center justify-between px-16 py-32 max-w-7xl mx-auto min-h-screen">
-          <div className="flex-1 space-y-6">
+        <div className="relative z-10 flex flex-col-reverse lg:flex-row items-center justify-between px-6 lg:px-16 py-16 lg:py-32 max-w-7xl mx-auto min-h-screen gap-10">
+          <div className="flex-1 w-full text-center lg:text-left space-y-6">
             <div className="space-y-4">
-              <h1 className="text-6xl font-bold">
+              <h1 className="text-4xl sm:text-6xl font-bold">
                 <span className="bg-gradient-to-r from-cyan-400 to-cyan-300 bg-clip-text text-transparent">
                   Hello I'm
                 </span>
               </h1>
-              <h1 className="text-7xl font-bold">Nitya Singh</h1>
+              <h1 className="text-5xl sm:text-7xl font-bold">Nitya Singh</h1>
               
               {/* Typewriter effect */}
               <div className="h-12 flex items-center">
-                <span className="text-3xl font-bold bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent">
+                <span className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent">
                   {text}
                   <span className="animate-pulse">|</span>
                 </span>
@@ -340,7 +334,7 @@ export default function Home() {
           </div>
 
           {/* Placeholder for 3D Character */}
-          <div className="flex-1 flex items-center justify-center h-[600px]">
+          <div className="hidden md:flex flex-1 items-center justify-center h-[600px]">
             <div className="w-full h-[500px] rounded-2xl overflow-hidden shadow-lg bg-transparent">
               <Suspense fallback={null}>
                 <Canvas
@@ -426,7 +420,7 @@ export default function Home() {
               </p>
 
               {/* Info Cards */}
-              <div className="grid grid-cols-3 gap-4 pt-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                 <div className="border border-gray-700 rounded-xl p-6 h-28 hover:border-cyan-500/50 transition-colors flex flex-col justify-center">
                   <p className="text-gray-400 text-sm mb-2">Experience</p>
                   <p className="text-white text-xl font-semibold">Fresher</p>
