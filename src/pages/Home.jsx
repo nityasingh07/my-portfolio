@@ -217,7 +217,7 @@ export default function Home() {
       id: 3,
       title: "Portfolio Website",
       description: "Co-Align is an innovative AI-driven roommate matching platform built to enhance women’s co-living experiences. By analyzing lifestyle preferences, habits, and personalities, the system intelligently recommends compatible roommates. It integrates AI-based matching algorithms and the Omnidim.io Voice Assistant to deliver a seamless, personalized, and safe co-living journey for every user.",
-      image: "public/models/ss.png",
+      image: "/models/ss.png",
       tags: ["React.js", "Vite", "Tailwind CSS"],
       github: "https://github.com/nityasingh07/my-portfolio",
       website:""
