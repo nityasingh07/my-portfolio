@@ -220,7 +220,7 @@ export default function Home() {
       image: "/models/ss.png",
       tags: ["React.js", "Vite", "Tailwind CSS"],
       github: "https://github.com/nityasingh07/my-portfolio",
-      website:""
+      website:"https://my-portfolio-pi-drab-13.vercel.app/"
     }
   ];
 
