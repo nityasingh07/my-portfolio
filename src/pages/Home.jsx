@@ -298,7 +298,7 @@ export default function Home() {
               </a>
 
               <a 
-                href="https://acrobat.adobe.com/id/urn:aaid:sc:AP:d750b387-61ea-4ff6-9e6a-16fb079c6c58"
+                href="https://acrobat.adobe.com/id/urn:aaid:sc:ap:d750b387-61ea-4ff6-9e6a-16fb079c6c58"
                 
                 target="_blank"
                 rel="noopener noreferrer"
