@@ -298,7 +298,8 @@ export default function Home() {
               </a>
 
               <a 
-                href="https://drive.google.com/file/d/16AqO5QJRWGOyLQe_BXFl3f8oSWeWPQiV/view?usp=drive_link"
+                href="https://acrobat.adobe.com/id/urn:aaid:sc:AP:d750b387-61ea-4ff6-9e6a-16fb079c6c58"
+                
                 target="_blank"
                 rel="noopener noreferrer"
                 >
